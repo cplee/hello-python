@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches: 
+    - master
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    concurrency: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: nektos/quinntainer@v1.0.1
+      with: 
+        aws-region: us-west-2
+        role-to-assume: arn:aws:iam::861766428188:role/quinntainer-gha-cplee-hello-python
+        port: 5000
+
