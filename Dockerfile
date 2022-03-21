@@ -2,9 +2,9 @@ FROM python:3-alpine
 
 RUN pip install pipenv
 
-COPY Pipfile Pipfile.lock /app/
+COPY requirements.txt /app/
 WORKDIR /app
-RUN pipenv install --system --deploy
+RUN pip install -r requirements.txt
 
 COPY app.py /app/
 

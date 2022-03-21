@@ -1,5 +1,0 @@
-environments:
-- name: acceptance
-  provider: ecs-fargate
-
-service:
